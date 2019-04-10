@@ -33,4 +33,8 @@ docker-machine ip testdriven-prod
 
 ## Part 2: Code Coverage and React
 
-
+### Docker and Docker-Compose Commands
+```sh
+docker-compose -f docker-compose-dev.yml exec users python manage.py cov
+docker-compose -f docker-compose-dev.yml exec users flake8 project
+```
