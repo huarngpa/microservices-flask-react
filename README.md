@@ -1,5 +1,7 @@
 # Commands
 
+[![Build Status](https://travis-ci.com/huarngpa/microservices-flask-react.svg?branch=master)](https://travis-ci.com/huarngpa/microservices-flask-react)
+
 ## Part 1: Docker and Flask
 
 ### Docker and Docker-Compose Commands
