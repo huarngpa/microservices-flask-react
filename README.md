@@ -1,4 +1,4 @@
-# Commands
+# Microservices - Docker, Flask, React
 
 [![Build Status](https://travis-ci.com/huarngpa/microservices-flask-react.svg?branch=master)](https://travis-ci.com/huarngpa/microservices-flask-react)
 
@@ -39,4 +39,9 @@ docker-machine ip testdriven-prod
 ```sh
 docker-compose -f docker-compose-dev.yml exec users python manage.py cov
 docker-compose -f docker-compose-dev.yml exec users flake8 project
+```
+
+## React Commands
+```sh
+npm start
 ```
