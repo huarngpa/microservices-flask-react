@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import axios from 'axios';
+import AddUser from './components/AddUser';
 import UsersList from './components/UsersList';
 
 class App extends Component {
@@ -10,6 +11,11 @@ class App extends Component {
     this.state = {
       users: []
     };
+  }
+
+  addUser(event) {
+    event.preventDefault();
+    console.log('sanity check!');
   }
 
   componentDidMount() {
@@ -27,10 +33,12 @@ class App extends Component {
       <section className="section">
         <div className="container">
           <div className="columns">
-            <div className="column is-one-third">
+            <div className="column is-half">
               <br/>
               <h1 className="title is-1">All Users</h1>
               <hr/><br/>
+              <AddUser addUser={this.addUser}/>
+              <br/><br/>
               <UsersList users={this.state.users} />
             </div>
           </div>

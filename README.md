@@ -44,4 +44,5 @@ docker-compose -f docker-compose-dev.yml exec users flake8 project
 ## React Commands
 ```sh
 npm start
+npm test
 ```
