@@ -8,17 +8,18 @@ run apk update && \
     apk add netcat-openbsd
 
 # set working directory
-workdir /app/users
-
-# add app
-copy . /app/users
+workdir /usr/src/app
 
 # add and install requirements
-run pip install --trusted-host pypi.python.org -r requirements.txt
+copy ./requirements.txt /usr/src/app/requirements.txt
+run pip install -r requirements.txt
 
 # add entrypoint.sh
-copy ./entrypoint.sh /app/users/entrypoint.sh
-run chmod +x /app/users/entrypoint.sh
+copy ./entrypoint.sh /usr/src/app/entrypoint.sh
+run chmod +x /usr/src/app/entrypoint.sh
+
+# add app
+copy . /usr/src/app
 
 # run server
-cmd ["/app/users/entrypoint.sh"]
+cmd ["/usr/src/app/entrypoint.sh"]

@@ -2,14 +2,14 @@
 from node:11.12.0-alpine
 
 # set working directory
-workdir /app/client
+workdir /usr/src/app
 
 # add `/usr/src/app/node_modules/.bin` to $PATH
-env PATH /app/client/node_modules/.bin:$PATH
+env PATH /usr/src/app/node_modules/.bin:$PATH
 
 # install and cache app dependencies
-copy package.json /app/client/package.json
-copy package-lock.json /app/client/package-lock.json
+copy package.json /usr/src/app/package.json
+copy package-lock.json /usr/src/app/package-lock.json
 run npm ci
 run npm install react-scripts@2.1.8 -g --silent
 
