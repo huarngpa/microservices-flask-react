@@ -6,6 +6,8 @@ from flask_debugtoolbar import DebugToolbarExtension
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_bcrypt import Bcrypt
+import logging
+import sys
 
 
 # instantiate the db
