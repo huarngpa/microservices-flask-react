@@ -41,7 +41,14 @@ docker-compose -f docker-compose-dev.yml exec users python manage.py cov
 docker-compose -f docker-compose-dev.yml exec users flake8 project
 ```
 
-## React Commands
+### Environment Variables
+You will need to supply this one-off environment variable for dev and production builds
+```
+export REACT_APP_USERS_SERVICE_URL=http://localhost # local
+export REACT_APP_USERS_SERVICE_URL=http://<public-ip> # prod
+```
+
+### React Commands
 ```sh
 npm start
 npm test
