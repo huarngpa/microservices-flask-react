@@ -6,14 +6,14 @@
 
 ### Docker and Docker-Compose Commands
 ```sh
-docker-compose -f docker-compose-dev.yml up -d --build # when new deps
+docker-compose -f docker-compose.yml up -d --build # when new deps
 docker-compose -f docker-compose-prod.yml up -d # should auto-update?
-docker-compose -f docker-compose-dev.yml down
-docker-compose -f docker-compose-dev.yml exec users python manage.py test
-docker-compose -f docker-compose-dev.yml exec users python manage.py shell
-docker-compose -f docker-compose-dev.yml exec users python manage.py recreate_db
-docker-compose -f docker-compose-dev.yml exec users python manage.py seed_db
-docker-compose -f docker-compose-dev.yml exec users-db psql -U postgres
+docker-compose -f docker-compose.yml down
+docker-compose -f docker-compose.yml exec users python manage.py test
+docker-compose -f docker-compose.yml exec users python manage.py shell
+docker-compose -f docker-compose.yml exec users python manage.py recreate_db
+docker-compose -f docker-compose.yml exec users python manage.py seed_db
+docker-compose -f docker-compose.yml exec users-db psql -U postgres
 docker image rm $(docker images -f "dangling=true" -q)
 docker-compose -f docker-compose-prod.yml exec users env
 ```
@@ -37,8 +37,8 @@ docker-machine ip testdriven-prod
 
 ### Docker and Docker-Compose Commands
 ```sh
-docker-compose -f docker-compose-dev.yml exec users python manage.py cov
-docker-compose -f docker-compose-dev.yml exec users flake8 project
+docker-compose -f docker-compose.yml exec users python manage.py cov
+docker-compose -f docker-compose.yml exec users flake8 project
 ```
 
 ### Environment Variables
@@ -52,4 +52,11 @@ export REACT_APP_USERS_SERVICE_URL=http://<public-ip> # prod
 ```sh
 npm start
 npm test
+```
+
+## Part 3: Flask Migrate and Bcrypt
+```sh
+docker-compose exec users python manage.py db init
+docker-compose exec users python manage.py db migrate # database changes
+docker-compose exec users python manage.py db upgrade # apply changes
 ```
